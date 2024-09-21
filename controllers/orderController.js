@@ -6,7 +6,7 @@ const stripe = new Stripe('sk_test_51PlTgS2Ljv0NTp3h6HUl44hdRfu91y3Uh6HToyOfmzGK
 // //config variables
 const currency = "usd";
 const deliveryCharge = 5;
-const frontend_URL = 'https://deliveryuser.onrender.com/';
+const frontend_URL = 'https://deliveryuser.onrender.com';
 
 // Placing User Order for Frontend using stripe
 const placeOrder = async (req, res) => {
