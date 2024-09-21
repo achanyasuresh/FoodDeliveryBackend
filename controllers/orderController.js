@@ -75,7 +75,7 @@ const placeOrderCod = async (req, res) => {
         res.json({ success: true, message: "Order Placed" });
 
     } catch (error) {
-        console.log(error);
+        console.log(error, "reeeeeeeeeeee");
         res.json({ success: false, message: "Error" })
     }
 }
@@ -114,7 +114,8 @@ const updateStatus = async (req, res) => {
 }
 
 const verifyOrder = async (req, res) => {
-    const { orderId, success } = req.body;
+    const { orderId, success } = req.query;
+      console.log(`Verifying Order: ${orderId}, Success: ${success}`);
     try {
         if (success === "true") {
             await orderModel.findByIdAndUpdate(orderId, { payment: true });
