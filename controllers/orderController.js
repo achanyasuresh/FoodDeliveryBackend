@@ -6,7 +6,9 @@ const stripe = new Stripe('sk_test_51PlTgS2Ljv0NTp3h6HUl44hdRfu91y3Uh6HToyOfmzGK
 // //config variables
 const currency = "usd";
 const deliveryCharge = 5;
-const frontend_URL = 'http://localhost:5173';
+// const frontend_URL = 'http://localhost:5174';
+
+const frontend_URL = 'https://deliveryuser.onrender.com';
 
 // Placing User Order for Frontend using stripe
 const placeOrder = async (req, res) => {
@@ -114,7 +116,7 @@ const updateStatus = async (req, res) => {
 }
 
 const verifyOrder = async (req, res) => {
-    const { orderId, success } = req.body;
+    const { orderId, success } = req.query;
     try {
         if (success === "true") {
             await orderModel.findByIdAndUpdate(orderId, { payment: true });
